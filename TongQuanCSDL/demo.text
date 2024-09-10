@@ -1,0 +1,15 @@
+create database my_store; # tạo database
+use my_store; # sử dụng database
+
+create table product (
+id int,
+nameProduct varchar(60),
+price double,
+isSell boolean
+); # tạo bảng
+
+insert into product(id, nameProduct, price, isSell) values (1, "Bánh", 3.5, true); # thêm dữ liệu vào bảng
+
+# Các ràng buộc (MySql) là gì (Vd: primary key, not null, auto increment, default, unique,...), tìm hiểu foreign key ? và code thử 1 vài loại
+# Xóa bảng, Sửa cấu trúc bảng (VD: Thêm trường gender vào bảng, sửa price thành int...)
+# Xóa, Sửa dữ liệu trang các bảng
