@@ -1,0 +1,29 @@
+create database my_school;
+use my_school;
+
+create table person(
+	id int primary key auto_increment,
+    username varchar(60) not null unique,
+    age int default 0,
+    description text
+);
+
+-- insert into person(username, age, description) values ("Linh", 27, "Code gà");
+insert into person(username, description) values ("Tùng", "Code gà");
+select * from person join class on person.id_class = class.id;
+
+create table class(
+	id int primary key auto_increment,
+    name varchar(20),
+    status varchar(10)
+);
+
+insert into class(name, status) values ("C04JV", "active");
+insert into class(name, status) values ("C05JV", "active");
+select * from class;
+
+-- alter
+alter table person add column id_class int;
+alter table person add foreign key (id_class) references class(id);
+update person set id_class = 1 where id = 1;
+update person set id_class = 2 where id = 4;
