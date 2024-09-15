@@ -1,0 +1,53 @@
+-- Tạo db
+create database my_store;
+use my_store;
+create table category(
+	id int primary key auto_increment,
+    name varchar(60) not null
+);
+
+insert into category(name) values ("Bánh");
+insert into category(name) values ("Kẹo");
+insert into category(name) values ("Nước ngọt");
+
+create table prodcut(
+	id int primary key auto_increment,
+    nameProduct varchar(60) not null,
+    price double not null,
+    isSell boolean,
+    idCategory int
+);
+
+alter table prodcut add column idCategory int;
+alter table prodcut add foreign key (idCategory) REFERENCES category(id);
+
+select * from prodcut;
+insert into prodcut(nameProduct, price, isSell, idCategory) values ("Kẹo gừng", 3000, true, 2);
+insert into prodcut(nameProduct, price, isSell, idCategory) values ("Bánh mì", 2000, true, 1);
+insert into prodcut(nameProduct, price, isSell, idCategory) values ("Coca", 6000, true, 3);
+insert into prodcut(nameProduct, price, isSell) values ("Bánh cáy", 6000, false);
+
+-- Các lệnh truy vấn
+use my_store;
+select id, price from prodcut; -- select <tên cột> from <tên bảng>
+ -- Đằng sau where là điều kiện truy vấn
+select * from prodcut where price <> 3000; -- Toán tử >, <, >=, <=, <>, !=
+select * from prodcut where price >= 3000 and isSell = true; -- toán tử và: and
+select * from prodcut where price >= 3000 or isSell = true; -- toán tử hoặc: or
+select * from prodcut where price >= 3000 and price <= 6000;
+-- <=>
+select * from prodcut where price between 3000 and 6000; -- lấy trong khoảng between...and...
+select * from prodcut where idCategory is null; -- lấy ra data null
+select * from prodcut where idCategory is not null; -- lấy ra data not null
+select * from prodcut where nameProduct like "B%"; -- tìm data có dữ liệu gần đúng
+select * from prodcut where price = 3000 or price = 6000;
+-- <=>
+select * from prodcut where price in (3000, 6000); -- tìm kiếm data có trong 1 danh sách
+select * from prodcut where price not in (3000, 6000);
+
+-- Nhóm: group..by
+select isSell, count(id) as 'count' from prodcut group by isSell having count < 2; -- count: dùng để đếm
+-- having: nằm sau group by và là điều kiện dùng kết hợp với các hàm
+select isSell, count(id) as 'count' from prodcut where isSell = true group by isSell;
+-- where: nằm trước group by và là điều kiện cho cột
+
