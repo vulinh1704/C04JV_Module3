@@ -1,0 +1,46 @@
+use my_store;
+select id, price from prodcut; -- select <tên cột> from <tên bảng>
+ -- Đằng sau where là điều kiện truy vấn
+select * from prodcut where price <> 3000; -- Toán tử >, <, >=, <=, <>, !=
+select * from prodcut where price >= 3000 and isSell = true; -- toán tử và: and
+select * from prodcut where price >= 3000 or isSell = true; -- toán tử hoặc: or
+select * from prodcut where price >= 3000 and price <= 6000;
+-- <=>
+select * from prodcut where price between 3000 and 6000; -- lấy trong khoảng between...and...
+select * from prodcut where idCategory is null; -- lấy ra data null
+select * from prodcut where idCategory is not null; -- lấy ra data not null
+select * from prodcut where nameProduct like "B%"; -- tìm data có dữ liệu gần đúng
+select * from prodcut where price = 3000 or price = 6000;
+-- <=>
+select * from prodcut where price in (3000, 6000); -- tìm kiếm data có trong 1 danh sách
+select * from prodcut where price not in (3000, 6000);
+
+-- Nhóm: group..by
+select isSell, count(id) as 'count' from prodcut group by isSell having count > 2; -- count: dùng để đếm
+-- having: nằm sau group by và là điều kiện dùng kết hợp với các hàm
+select isSell, count(id) as 'count' from prodcut where isSell = true group by isSell;
+-- where: nằm trước group by và là điều kiện cho cột
+select * from prodcut;
+-- Lấy ra giá trung bình của các phẩm có idCategory = 1
+select idCategory, avg(price) from prodcut where idCategory = 1 group by idCategory;
+-- Lấy ra danh sách giá trung bình theo loại sản phẩm với giá trung bình >= 3000;
+select idCategory, avg(price) as 'avgPrice' from prodcut group by idCategory having avgPrice > 3000;
+-- Dùng group by khi yêu cầu truy vấn cần tổng hợp dữ liệu theo nhóm gì đó.
+
+-- order by: dùng để sắp xếp
+select * from prodcut order by price, nameProduct;
+select * from prodcut order by price desc limit 1; -- desc giảm dần, asc: tăng dần (mặc định)
+-- limit: giới hạn số lượng bản ghi lấy ra.
+-- Các hàm thường gặp: sum() ~ tổng ; avg() ~ tính trung bình; nax() ~ tìm giá trị lớn nhất; count() ~ đếm số lượng bản ghi
+select max(price) from prodcut;
+
+select * from prodcut p, category c where p.idCategory = c.id;
+-- <=>
+select * from prodcut p join category c on p.idCategory = c.id; -- innner join
+-- join: sử dụng để lấy dữ liệu từ 2 hoặc nhiều bảng dựa trên 1 điều kiện nào đó (thường là id).
+
+select * from prodcut p left join category c on p.idCategory = c.id;
+-- left join: sẽ lấy dữ liệu ở phần chung và bảng trên trái
+-- right join: lấy dữ liệu ở phần chung và bảng bên phải.
+-- full outer join: mysql k có
+
