@@ -1,0 +1,42 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 100%;
+    height: 1000px;
+    background-color: rgb(209, 243, 243);
+}
+
+.container .header {
+    width: 100%;
+    height: 100px;
+}
+
+.header .logo {
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+    float: left;
+}
+
+.header .banner {
+    width: calc(80% - 5px);
+    /* calc: hàm tính toán trong css có thể + - * / */
+    height: 100%;
+    border: 1px solid black;
+    margin-left: 5px; 
+    float: left;
+}
+
+/* 20% + (80% gộp 5px) > 100% */
+
+/* 
+Chia theo hàng ngang
+Chia theo cột trong hàng
+Những phần chung chung nên góm nhóm lại trogn 1 phần
+*/

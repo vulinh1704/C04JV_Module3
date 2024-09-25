@@ -1,0 +1,28 @@
+div {
+    width: 200px;
+    height: 100px;
+    /* Quy định width, height: thì là quy định kích thước cho content  */
+    border: 20px solid black;
+    background-color: palevioletred;
+    /* padding: 40px 50px 60px 70px;  */
+    /* 
+    1 giá trị: cả 4 phía là giá trị đó, 
+    2 giá trị: trên dưới, trái phải 
+    3 giá trị: trên trái,phải dưới
+    4 giá trị: theo chiều kim đồng
+     */
+    padding-top: 30px;
+    padding-left: 20px;
+    margin: 50px;
+    /* box-sizing: border-box; */
+    /*nếu giá trị box-sizing là border-box thì khi quy width, height là đang quy định cho: content + padding + border  */
+}
+
+/* 
+content: phần nội dung của box model
+padding: khoảng cách giữa đường content và border
+border: viền của box
+margin: khoảng cách với các phần quanh của box đó
+
+các thành phần tác động giao diện: content, border, padding
+*/

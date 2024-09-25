@@ -1,0 +1,43 @@
+/* h1 {
+    color: orange;
+    font-size: 50px;
+} */
+
+#the1 {
+    color: aqua;
+}
+
+
+.demo {
+    color: purple;
+    font-size: 20px;
+    font-weight: 100;
+
+}
+
+/* 
+<bộ chọn> {
+    <thuộc tính>: <giá trị>;
+    <thuộc tính>: <giá trị>;
+}
+
+
+<bộ chọn> : 
+tên thẻ: h1 | d | div | a |...
+id: #id 
+Class: .class
+*/
+
+/* #d {
+    color: palevioletred;
+} */
+
+.name {
+    color: blue;
+}
+
+div {
+    color: red !important;
+}
+
+/* Thứ tự ưu tiên: !important inline > id > Class > Thẻ */
