@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    display: flex; 
+    /* Sử dụng khi muốn các item con nằm bên trong có thể sử dụng layout flex */
+    
+    flex-direction: row;
+    /* Quy định chiều hiển thị của các item trong flex box, mặc định là row */
+
+    flex-wrap: wrap;
+    /* Quy định khi các phần từ bên trong quá kích thước của flex box có nhảy
+    thêm hàng tiếp theo hay không */
+
+    /* justify-content: space-between; */
+    /* justify-content: center; */
+    justify-content: space-around;
+    /* Quy định khoảng cách hiển thị theo chiều ngang với các item */
+
+    /* row-gap: 20px; */
+    /* Quy định khoảng cách giữa các hàng */
+
+    align-items: center;
+    /* Quy định khoảng cách hiển thị theo chiều dọc với các item */
+
+}
+
+.item {
+    width: 17%;
+    height: 200px;
+    border: 1px solid black;
+    background-color: aquamarine;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
