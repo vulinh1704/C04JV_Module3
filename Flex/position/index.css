@@ -1,0 +1,69 @@
+.demo {
+    width: 400px;
+    height: 400px;
+    background-color: blue;
+    position: relative;
+    /* top: 300px */
+}
+
+.demo2 {
+    width: 50px;
+    height: 50px;
+    background-color: palevioletred;
+    position: static; 
+    top: 2000px
+    /* Mặc định các thẻ trong HTML đều có position là static */
+
+}
+
+
+.demo3 {
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    position: relative;
+    /* 
+    Dịch chuyển xung quanh vị trí mặc định
+    Vị trí mặc định của thẻ sẽ k bị xóa
+    */
+    /* top: 40px; */
+    left: 200px;
+    bottom: 20px;
+}
+
+.demo4 {
+    width: 60px;
+    height: 60px;
+    background: gray;
+    position: absolute;
+    /* VỊ trí mặc định sẽ bị xóa khỏi DOM */
+    top: 80%;
+    /* Khi quy định top, left, right nó sẽ phụ thuộc vào cha
+    gân nhất có position khác static*/
+}
+
+
+.demo5 {
+    width: 80px;
+    height: 80px;
+    background-color: red;
+}
+
+
+
+body {
+    height: 2000px;
+    background-color: green;
+}
+.nav-bar {
+    width: 100%;
+    height: 60px;
+    background-color: brown;
+    position: fixed;
+    /* VỊ trí mặc định sẽ bị xóa khỏi DOM */
+    /* Khi quy định top, left, right nó sẽ phụ thuộc hoàn
+    toàn vào web có position khác static*/
+    top: 50%;
+}
+
+
